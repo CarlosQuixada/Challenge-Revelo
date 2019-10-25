@@ -22,12 +22,10 @@ country = Country(jobs_google)
 util_country = UtilCountry()
 
 vacancies_by_country = country.count_vacancies_by_country()
-country, values = util_country.maker_data_graph(vacancies_by_country)
+data, layout = util_country.maker_data_graph(vacancies_by_country)
 
-trace1 = go.Bar(x=country,
-                y=values)
-data = [trace1]
-py.iplot(data)
+fig = go.Figure(data=data, layout=layout)
+py.iplot(fig)
 
 ################ Q2 ###################
 print(vacancies_by_country['Brazil'])
